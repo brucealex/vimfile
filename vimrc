@@ -31,7 +31,8 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'tpope/vim-commentary'
 " NeoBundle 'Raimondi/delimitMate'
-" NeoBundle 'Yggdroot/indentLine'
+" NeoBundle 'elzr/vim-json'
+NeoBundle 'mattn/emmet-vim'
 NeoBundle 'godlygeek/tabular'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'kien/ctrlp.vim'
@@ -57,6 +58,7 @@ NeoBundle 'honza/vim-snippets'
 
 "" Color
 NeoBundle 'tomasr/molokai'
+
 
 "" Custom bundles
 
@@ -109,6 +111,9 @@ set hlsearch
 set incsearch
 set ignorecase
 set smartcase
+nmap n nzz
+nmap N Nzz
+
 
 "" Encoding
 set bomb
@@ -134,6 +139,8 @@ set number
 let no_buffers_menu=1
 highlight BadWhitespace ctermbg=red guibg=red
 colorscheme molokai
+let g:rehash256 = 1
+
 
 set mousemodel=popup
 set t_Co=256
@@ -235,8 +242,13 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.db,*.sqlite
 nnoremap <silent> <F2> :NERDTreeFind<CR>
 noremap <F3> :NERDTreeToggle<CR>
 
+"" Vim JSON
+"let g:vim_json_syntax_conceal = 1
+
+
+
 "" Neocomplacache
-let g:neocomplcache_enable_at_startup = 1
+let g:neocomplcache_enable_at_startup = 0
 let g:neocomplcache_enable_smart_case = 1
 let g:neocomplcache_enable_underbar_completion = 1
 let g:neocomplcache_enable_camel_case_completion = 1
@@ -334,7 +346,7 @@ let g:ctrlp_user_command = "find %s -type f | grep -Ev '"+ g:ctrlp_custom_ignore
 let g:ctrlp_use_caching = 0
 cnoremap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
 noremap <leader>b :CtrlPBuffer<CR>
-let g:ctrlp_map = ',e'
+" let g:ctrlp_map = ',e'
 let g:ctrlp_open_new_file = 'r'
 
 " snippets
@@ -378,6 +390,14 @@ noremap <leader>z :bp<CR>
 noremap <leader>q :bp<CR>
 noremap <leader>x :bn<CR>
 noremap <leader>w :bn<CR>
+
+" Cursorline {{{
+" Only show cursorline in the current window and in normal mode.
+augroup CursorLine
+  au!
+  au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+  au WinLeave * setlocal nocursorline
+augroup END
 
 "" Close buffer
 noremap <leader>c :bd<CR>

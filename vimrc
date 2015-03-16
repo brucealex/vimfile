@@ -36,7 +36,7 @@ NeoBundle 'mattn/emmet-vim'
 NeoBundle 'godlygeek/tabular'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'kien/ctrlp.vim'
-NeoBundle 'Shougo/neocomplcache.vim'
+NeoBundle 'Valloric/YouCompleteMe'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'sheerun/vim-polyglot'
@@ -59,6 +59,8 @@ NeoBundle 'honza/vim-snippets'
 "" Color
 NeoBundle 'tomasr/molokai'
 
+"" Stylus
+NeoBundle 'wavded/vim-stylus'
 
 "" Custom bundles
 
@@ -66,6 +68,7 @@ NeoBundle 'tomasr/molokai'
 NeoBundle 'amirh/HTML-AutoCloseTag'
 NeoBundle 'hail2u/vim-css3-syntax'
 NeoBundle 'gorodinskiy/vim-coloresque'
+NeoBundle 'KabbAmine/vCoolor.vim'
 NeoBundle 'tpope/vim-haml'
 
 ""Template Jade Syntax
@@ -244,20 +247,15 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.db,*.sqlite
 nnoremap <silent> <F2> :NERDTreeFind<CR>
 noremap <F3> :NERDTreeToggle<CR>
 
+
+""Vcoolor Picker
+noremap <F5> :VCoolor<CR>
+let g:vcoolor_map = '<NEW_MAPPING>'
+
+
 "" Vim JSON
 "let g:vim_json_syntax_conceal = 1
 
-
-
-"" Neocomplacache
-let g:neocomplcache_enable_at_startup = 0
-let g:neocomplcache_enable_smart_case = 1
-let g:neocomplcache_enable_underbar_completion = 1
-let g:neocomplcache_enable_camel_case_completion = 1
-let g:neocomplcache_min_syntax_length = 3
-" inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-let g:neocomplcache_enable_auto_select = 1
-inoremap <expr><Space> pumvisible() ? neocomplcache#close_popup() : "\<Space>"
 
 " grep.vim
 nnoremap <silent> <leader>f :Rgrep<CR>
@@ -352,7 +350,7 @@ noremap <leader>b :CtrlPBuffer<CR>
 let g:ctrlp_open_new_file = 'r'
 
 " snippets
-let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<c-b>"
 let g:UltiSnipsEditSplit="vertical"

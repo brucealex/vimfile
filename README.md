@@ -49,6 +49,7 @@ Commands | Descriptions
 `F3`  | Open/Close tree navigate files
 `F4` | List all class and method, support for python, go, lua, ruby and php
 `F5`  | Open color picker 
+`F6`  | Open undotree 
 `,v` | Split vertical
 `,h` | Split horizontal
 `,f` | Search in the project

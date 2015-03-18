@@ -35,6 +35,7 @@ NeoBundle 'tpope/vim-commentary'
 NeoBundle 'mattn/emmet-vim'
 NeoBundle 'godlygeek/tabular'
 NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'mbbill/undotree'
 NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'Valloric/YouCompleteMe'
 NeoBundle 'bling/vim-airline'
@@ -248,10 +249,21 @@ nnoremap <silent> <F2> :NERDTreeFind<CR>
 noremap <F3> :NERDTreeToggle<CR>
 
 
+""Move lines
+"noremap H ddkkp
+"noremap N ddp
+
+
 ""Vcoolor Picker
 noremap <F5> :VCoolor<CR>
 let g:vcoolor_map = '<NEW_MAPPING>'
 
+""UndoTree
+noremap <F6> :UndotreeToggle<cr>
+if has("persistent_undo")
+    set undodir='~/.undodir/'
+    set undofile
+endif
 
 "" Vim JSON
 "let g:vim_json_syntax_conceal = 1

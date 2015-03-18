@@ -30,7 +30,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 "*****************************************************************************
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'tpope/vim-commentary'
-" NeoBundle 'Raimondi/delimitMate'
+"NeoBundle 'michaeljsmith/vim-indent-object'
 " NeoBundle 'elzr/vim-json'
 NeoBundle 'mattn/emmet-vim'
 NeoBundle 'godlygeek/tabular'
@@ -40,6 +40,7 @@ NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'Valloric/YouCompleteMe'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'airblade/vim-gitgutter'
+NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'sheerun/vim-polyglot'
 NeoBundle 'vim-scripts/grep.vim'
 NeoBundle 'vim-scripts/CSApprox'
@@ -71,6 +72,7 @@ NeoBundle 'hail2u/vim-css3-syntax'
 NeoBundle 'gorodinskiy/vim-coloresque'
 NeoBundle 'KabbAmine/vCoolor.vim'
 NeoBundle 'tpope/vim-haml'
+NeoBundle 'vim-scripts/loremipsum'
 
 ""Template Jade Syntax
 NeoBundle 'digitaltoad/vim-jade'
@@ -93,6 +95,7 @@ NeoBundleCheck
 "" Basic Setup
 "*****************************************************************************"
 "" Encoding
+set enc=utf-8
 set encoding=utf-8
 set fileencoding=utf-8
 set fileencodings=utf-8
@@ -141,6 +144,7 @@ set shell=/bin/sh
 syntax on
 set ruler
 set number
+set scrolloff=999
 
 let no_buffers_menu=1
 highlight BadWhitespace ctermbg=red guibg=red
@@ -217,11 +221,6 @@ set titlestring=%F
 
 set statusline=%F%m%r%h%w%=(%{&ff}/%Y)\ (line\ %l\/%L,\ col\ %c)\ %{fugitive#statusline()}
 
-let g:airline_theme = 'powerlineish'
-let g:airline_enable_branch = 1
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#left_sep = ' '
-let g:airline#extensions#tabline#left_alt_sep = '|'
 
 "*****************************************************************************
 "" Abbreviations
@@ -361,6 +360,10 @@ noremap <leader>b :CtrlPBuffer<CR>
 " let g:ctrlp_map = ',e'
 let g:ctrlp_open_new_file = 'r'
 
+
+"" vim EasyMotion
+nmap s <Plug>(easymotion-bd-w)
+
 " snippets
 let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
@@ -379,9 +382,16 @@ let g:syntastic_aggregate_errors = 1
 let g:syntastic_check_on_open=1
 let g:syntastic_auto_loc_list=1
 
+"" vim indent guides
+"set list lcs=tab:\|\
 
 " vim-airline
-let g:airline_enable_syntastic = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme = 'powerlineish'
+let g:airline#extensions#branch#enabled = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
 
 "" Remove trailing whitespace on <leader>S
 nnoremap <silent> <leader>S :call TrimWhiteSpace()<cr>:let @/=''<CR>

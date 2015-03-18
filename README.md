@@ -51,6 +51,7 @@ Commands | Descriptions
 `F5`  | Open color picker 
 `F6`  | Open undotree 
 `,v` | Split vertical
+`s` | browse in file witch easymotion
 `,h` | Split horizontal
 `,f` | Search in the project
 `,o` | Open github file/line (website), if used git in **github**

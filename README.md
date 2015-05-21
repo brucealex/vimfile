@@ -58,6 +58,8 @@ Commands | Descriptions
 `,sh` | Open shell terminal inside Vim
 `,ga` | Execute *git add* on current file
 `,gc` | git commit (splits window to write commit message)
+`gcc` | insert commentary
+`<Control>+ Y` | emmet vim compile
 `,gsh` | git push
 `,gll` | git pull
 `,gs` | git status

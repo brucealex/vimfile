@@ -30,7 +30,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 "*****************************************************************************
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'tpope/vim-commentary'
-"NeoBundle 'michaeljsmith/vim-indent-object'
+"NeoBundle 'nathanaelkane/vim-indent-guides'
 " NeoBundle 'elzr/vim-json'
 NeoBundle 'mattn/emmet-vim'
 NeoBundle 'godlygeek/tabular'
@@ -104,10 +104,20 @@ set fileencodings=utf-8
 set backspace=indent,eol,start
 
 "" Tabs. May be overriten by autocmd rules
-set tabstop=4
-"set softtabstop=0
-set shiftwidth=4
+" Use spaces instead of tabs
 set expandtab
+" Be smart when using tabs ;)
+set smarttab
+" 1 tab == 4 spaces
+set shiftwidth=4
+set tabstop=4
+
+"" vim indent guides
+set list lcs=tab:\|\
+ 
+set ai "Auto indent
+set si "Smart indent
+set wrap "Wrap lines
 
 "" Map leader to ,
 let mapleader=','
@@ -351,7 +361,7 @@ noremap <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
 
 "" ctrlp.vim
 set wildmode=list:longest,list:full
-set wildignore+=*.o,*.obj,.git,*.rbc,*.pyc,__pycache__,node_modules
+set wildignore+=*.o,*.obj,.git,*.rbc,*.pyc,__pycache__,node_modules,*.html,bower_components
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn|tox)$'
 let g:ctrlp_user_command = "find %s -type f | grep -Ev '"+ g:ctrlp_custom_ignore +"'"
 let g:ctrlp_use_caching = 0
@@ -381,9 +391,6 @@ let g:syntastic_aggregate_errors = 1
 
 let g:syntastic_check_on_open=1
 let g:syntastic_auto_loc_list=1
-
-"" vim indent guides
-"set list lcs=tab:\|\
 
 " vim-airline
 let g:airline#extensions#tabline#enabled = 1
